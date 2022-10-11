@@ -7,6 +7,6 @@ router.get("/:title", controlador.redirecionar)
 
 router.post("/", express.urlencoded({extended: true}),controlador.addLink)  //pegando os dados apartir de um formulario
 
-router.get('/', (req, res) => res.send("Hello world"))
+router.get('/', (req, res) => res.render("index", {error:false , body: {}}))
 
 module.exports = router
