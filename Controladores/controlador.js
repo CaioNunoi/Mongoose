@@ -1,3 +1,4 @@
+const link = require("../Modelos/link")
 const Link = require("../Modelos/link") // modelos e esquemas
 
 const redirecionar = async (req, res) => {
@@ -25,4 +26,13 @@ const addLink = async (req , res) => {
     }
 }
 
-module.exports = { redirecionar, addLink }
+const allLinks = async (req,res) => {
+    try {
+        let links = await link.find({})
+        res.send(links)
+    } catch (error) {
+        res.send(error)
+    }
+}
+
+module.exports = { redirecionar, addLink, allLinks }
